@@ -1,0 +1,27 @@
+<div class="card card-div">
+  <div class="card-body shadow preview-area" >
+     <!-- <div class="alert alert-primary ml-4 mr-4 text-center" role="alert" *ngIf="message"> 
+      {{message}}
+    </div>  -->
+    <form [formGroup]="instrumentForm">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="title" class="ins-label">Instrument</label>
+            <input type="text" class="form-control" maxlength="75" id="title" formControlName="instrument">
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: -16px;">
+        <div class="col-md-6">
+          <button type="button" class="btn btn-primary btn-primary mr-1" style="margin-top: 29px;"
+            [disabled]="!instrumentForm.valid" (click)="processValue()">
+            <i class="fa fa-times"></i> Submit
+          </button>
+        </div>
+      </div>
+    </form>
+    <div [innerHTML]=message>
+    </div>
+  </div>
+</div>
