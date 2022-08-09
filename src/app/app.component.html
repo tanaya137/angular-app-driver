@@ -1,27 +1,46 @@
 <div class="card card-div">
-  <div class="card-body shadow preview-area" >
-     <!-- <div class="alert alert-primary ml-4 mr-4 text-center" role="alert" *ngIf="message"> 
-      {{message}}
-    </div>  -->
-    <form [formGroup]="instrumentForm">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="title" class="ins-label">Instrument</label>
-            <input type="text" class="form-control" maxlength="75" id="title" formControlName="instrument">
+  <div class="card-header">
+    <label for="title" class="card text-center">INSTRUMENT DATA DASHBOARD</label>
+  </div>
+  <div class="card-body shadow preview-area">
+    <div class="row">
+      <div class="col-md-6">
+        <form [formGroup]="instrumentForm">
+          <div class="row">
+            <div class="form-group">
+              <label for="title" class="ins-label">Please select the following command:</label>
+              <!-- <input type="text" class="form-control" maxlength="125" id="title" formControlName="instrument"> -->
+              <select name="Title" formControlName="instrument" class="form-control" id="title" placeholder="Select Command">
+                <option value="s">S - Stable Weight</option>
+                <option value="d">D - Dynamic Weight</option>
+                <option value="sir">SIR</option>
+              </select>
+            </div>
+          </div>
+          <div class="row" style="margin-top: -16px;">
+
+            <button type="button" class="btn btn-primary btn-primary mr-1" style="margin-top: 29px;"
+              (click)="processValue()">
+              <i class="fa fa-times"></i> Submit
+            </button>
+
+          </div>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card-body shadow preview-area">
+          <label for="title" class="card text-center">Instrument Reading</label>
+          <div [innerHTML]=message>
           </div>
         </div>
       </div>
-      <div class="row" style="margin-top: -16px;">
-        <div class="col-md-6">
-          <button type="button" class="btn btn-primary btn-primary mr-1" style="margin-top: 29px;"
-            [disabled]="!instrumentForm.valid" (click)="processValue()">
-            <i class="fa fa-times"></i> Submit
-          </button>
-        </div>
-      </div>
-    </form>
-    <div [innerHTML]=message>
     </div>
+  </div>
+  <div class="card-footer">
+    <button type="button" class="btn btn-danger btn-danger mr-1" style="margin-top: 29px;" [disabled]="!instrumentForm"
+      (click)="stopUpcomingValues()">
+      <i class="fa fa-times"></i> Stop
+    </button>
   </div>
 </div>

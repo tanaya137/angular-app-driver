@@ -25,11 +25,14 @@ export class AppComponent {
   }
 
   public processValue(): void {
-    if (this.instrumentForm.value.instrument.toLowerCase() === 's') {
+    if (this.instrumentForm.value.instrument.toLowerCase() === 'sir') {
       this.dataInterval = interval(1000).subscribe((x => {
         this.submitValue(this.instrumentForm.value.instrument);
       }))
-    } else {
+    } else  if (this.instrumentForm.value.instrument.toLowerCase() === 's') {
+      this.dataInterval.unsubscribe();
+      this.submitValue(this.instrumentForm.value.instrument);
+    }else  if (this.instrumentForm.value.instrument.toLowerCase() === 'd') {
       this.dataInterval.unsubscribe();
       this.submitValue(this.instrumentForm.value.instrument);
     }
@@ -48,6 +51,10 @@ export class AppComponent {
     if (this.dataInterval) {
       this.dataInterval.unsubscribe();
     }
+  }
+
+  public stopUpcomingValues(){
+    this.ngOnDestroy()
   }
 
 }
