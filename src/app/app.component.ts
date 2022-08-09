@@ -26,6 +26,7 @@ export class AppComponent {
 
   public processValue(): void {
     if (this.instrumentForm.value.instrument.toLowerCase() === 'sir') {
+      console.log(this.instrumentForm.value.instrument);
       this.dataInterval = interval(1000).subscribe((x => {
         this.submitValue(this.instrumentForm.value.instrument);
       }))

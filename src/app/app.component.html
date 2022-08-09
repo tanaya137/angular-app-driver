@@ -4,16 +4,16 @@
   </div>
   <div class="card-body shadow preview-area">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 card-body shadow preview-area">
         <form [formGroup]="instrumentForm">
           <div class="row">
-            <div class="form-group">
+            <div class="form-group full-width">
               <label for="title" class="ins-label">Please select the following command:</label>
               <!-- <input type="text" class="form-control" maxlength="125" id="title" formControlName="instrument"> -->
               <select name="Title" formControlName="instrument" class="form-control" id="title" placeholder="Select Command">
-                <option value="s">S - Stable Weight</option>
-                <option value="d">D - Dynamic Weight</option>
-                <option value="sir">SIR</option>
+                <option value="s">S - Stable Weight value</option>
+                <option value="d">SI - Weight value immediately</option>
+                <option value="sir">SIR - Weight value immediatel and repeat</option>
               </select>
             </div>
           </div>
@@ -38,7 +38,7 @@
     </div>
   </div>
   <div class="card-footer">
-    <button type="button" class="btn btn-danger btn-danger mr-1" style="margin-top: 29px;" [disabled]="!instrumentForm"
+    <button type="button" class="btn btn-danger btn-danger mr-1" style="margin-top: 2px;" [disabled]="!instrumentForm"
       (click)="stopUpcomingValues()">
       <i class="fa fa-times"></i> Stop
     </button>
